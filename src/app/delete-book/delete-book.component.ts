@@ -1,22 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-
-
-const STORAGE_KEY = 'local_todolist';
-
 @Component({
-  selector: 'app-all-books',
-  templateUrl: './all-books.component.html',
-  styleUrls: ['./all-books.component.scss']
+  selector: 'app-delete-book',
+  templateUrl: './delete-book.component.html',
+  styleUrls: ['./delete-book.component.scss']
 })
-
-export class AllBooksComponent implements OnInit {
+export class DeleteBookComponent implements OnInit {
 
   users = [];
   anotherTodolist = [];
   apiUrl = 'http://localhost:8080/api/books';
-  
+  deleteuri = 'http://localhost:8080/api/books/';
+
   GetData() {
     // this.http.get<any[]>(this.apiUrl)
     //   .subscribe(data => {
@@ -28,12 +24,11 @@ export class AllBooksComponent implements OnInit {
     this.users = [];
   }
 
-  savedata(id: string, name: string, image: string, description: string, author: string){
+  savedata(id: string, name: string, image: string, description: string){
     localStorage.setItem("id",id);
     localStorage.setItem("name",name);
     localStorage.setItem("image",image);
     localStorage.setItem("description",description);
-    localStorage.setItem("author",author);
   }
 
   constructor(private http: HttpClient) { }
@@ -46,8 +41,16 @@ export class AllBooksComponent implements OnInit {
     });
   }
 
-  open(){
-    window.scrollTo(0, 0)
+  deletedata(id: number){
+    console.log(""+id);
+    this.deleteuri = 'http://localhost:8080/api/books/'+id;
+    console.log(this.deleteuri);
+    this.http.delete<any[]>(this.deleteuri)
+    .subscribe(data => {
+      this.users = data;
+       console.log(this.users);
+    });
+    
   }
 
 }

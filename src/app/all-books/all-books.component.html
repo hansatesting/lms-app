@@ -14,11 +14,11 @@
         <div class="card">
           <img class="card-img-top" src="{{typenames.image}}" alt="">
           <div class="card-body">
-            <h4 class="card-title">{{typenames.name}}</h4>
-            <p class="card-text" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-height: 250px;">{{typenames.description}}</p>
+            <h4 class="card-title">{{typenames.title}}</h4>
+            <p class="card-text" style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-height: 250px;">{{typenames.content}}</p>
           </div>
           <div class="card-footer">
-            <a href="single-book" class="btn btn-primary" (click)="savedata(typenames.id, typenames.name,typenames.image,typenames.description)">Find Out More!</a>
+            <a href="single-book" class="btn btn-primary" (click)="savedata(typenames.id, typenames.title,typenames.image,typenames.content, typenames.author)">Find Out More!</a>
           </div>
         </div>
       </div>

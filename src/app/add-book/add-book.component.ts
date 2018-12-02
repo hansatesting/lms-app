@@ -9,13 +9,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AddBookComponent implements OnInit {
 
-  registerForm: FormGroup;
-    submitted = false;
+  registerFormD: FormGroup;
+  submittedD = false;
 
   constructor(private formBuilder: FormBuilder,private httpClient:HttpClient) { }
 
   ngOnInit() {
-    this.registerForm = this.formBuilder.group({
+    this.registerFormD = this.formBuilder.group({
       serialid: ['', Validators.required],
       bookName: ['', Validators.required],
       author: ['', Validators.required],
@@ -24,13 +24,13 @@ export class AddBookComponent implements OnInit {
   });
   }
 
-  get f() { return this.registerForm.controls; }
+  get f() { return this.registerFormD.controls; }
 
   onSubmit() {
-    this.submitted = true;
+    this.submittedD = true;
 
     // stop here if form is invalid
-    if (this.registerForm.invalid) {
+    if (this.registerFormD.invalid) {
         return;
     }
 
@@ -40,13 +40,13 @@ export class AddBookComponent implements OnInit {
 }
 
 postProfile(serialid:number,bookName: string,author: string,image: string,description: string){
-  this.httpClient.post('http://localhost:8081/api/customers',
+  this.httpClient.post('http://localhost:8080/api/books',
   {
-    id: serialid,
-    name: bookName,
+   
+    title: bookName,
     author:author,
     image: image,
-    description: description
+    content: description
   }
   ).subscribe(
    (data: any[]) => {

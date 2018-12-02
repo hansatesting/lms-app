@@ -10,6 +10,11 @@ import { SingleBookComponent } from './single-book/single-book.component';
 import { StorageServiceModule } from 'angular-webstorage-service';
 import { AddBookComponent } from './add-book/add-book.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AllDvdsComponent } from './all-dvds/all-dvds.component';
+import { SingleDvdComponent } from './single-dvd/single-dvd.component';
+import { DeleteBookComponent } from './delete-book/delete-book.component';
+import { BarrowItemComponent } from './barrow-item/barrow-item.component';
+import { ReportGenComponent } from './report-gen/report-gen.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +22,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AllBooksComponent,
     AllLandingComponent,
     SingleBookComponent,
-    AddBookComponent
+    AddBookComponent,
+    AllDvdsComponent,
+    SingleDvdComponent,
+    DeleteBookComponent,
+    BarrowItemComponent,
+    ReportGenComponent
   ],
   imports: [
     BrowserModule,
